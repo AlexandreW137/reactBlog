@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import './blogPost.css';
-function BlogPosts() {
-  const [posts, setPosts] = useState([]);
+  import './BlogPost.css';
 
-  useEffect(() => {
-    // Fazer uma solicitação ao servidor PHP para obter os dados dos posts
-    fetch('http://localhost/gamerBlog/server/getPosts.php')
-      .then(response => response.json())
-      .then(data => setPosts(data))
-      .catch(error => console.error('Erro ao obter os posts:', error));
-  }, []);
+  function BlogPosts() {
+    const [posts, setPosts] = useState([]);
 
-  return (
-    <div className="mainBlog">
-      {posts.map((post, index) => (
-        <div className="post" key={index}>
-          <h2>{post.titulo}</h2>
-          <img src={post.imagem} alt={`Imagem de ${post.titulo}`} />
-          <p>{post.descricao}</p>
-          <a href={post.link}><span>Ler mais</span></a>
-        </div>
-      ))}
-    </div>
-  );
-}
+    useEffect(() => {
+      // Fazer uma solicitação ao servidor PHP para obter os dados dos posts
+      fetch('http://localhost/reactBlog/server/getPosts.php')
+        .then(response => response.json())
+        .then(data => setPosts(data))
+        .catch(error => console.error('Erro ao obter os posts:', error));
+    }, []);
 
-export default BlogPosts;
+    return (
+      <div className="blog-posts">
+        {posts.map(post => (
+          <div className="blog-post" key={post.id}>
+            <img className="blog-post-image" src={post.imagem} alt={post.titulo} />
+            <div className="blog-post-content">
+              <h2 className="blog-post-title">{post.titulo}</h2>
+              <p className="blog-post-description">{post.descricao}</p>
+              <a className="blog-post-link" href={post.link}>Leia mais</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+
+  export default BlogPosts;

@@ -1,0 +1,10 @@
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-post {
+    width: 31%;
+    margin: 1%;
+}
+
