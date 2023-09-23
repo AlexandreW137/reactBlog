@@ -1,36 +1,19 @@
 import React from 'react';
-import './header.css';
-import Container from 'react-bootstrap/Container';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from 'react-bootstrap/Button';
 
+const Header = () => {
+    return (
+        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem' }}>
+            <h1>Meu Blog tecnologico</h1>
+            <nav>
+                <ul style={{ display: 'flex', listStyle: 'none' }}>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+    );
+};
 
-const header = () => {
-  return (
-    <header className='bg-dark'>
-      <Container >
-      <nav className="">
-        <a href="home.php">
-
-          <div className="logo">
-            <img src="/logoAIyellow.png" alt=""/>
-            <h1>TecBlog</h1>
-          </div>
-        </a>
-    <ul>
-      <li><a href="#"><FontAwesomeIcon icon="fa-solid fa-cart-shopping" beat />Blog</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Escrever</a></li>
-
-
-    </ul>
-      </nav>
-
-
-
-      </Container>
-    </header>
-
-    )
-}
-
-export default header
+export default Header;

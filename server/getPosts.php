@@ -1,19 +1,8 @@
-
 <?php
-// Permitir solicitações de qualquer origem
+// Permite solicitações de qualquer origem
 header("Access-Control-Allow-Origin: *");
-
-// Permitir métodos HTTP específicos (GET, POST, etc.)
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-
-// Permitir cabeçalhos personalizados, se necessário
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
-// Permitir cookies e credenciais
-header("Access-Control-Allow-Credentials: true");
-
-// Resto do seu código PHP
-
+// Define outros cabeçalhos CORS, se necessário
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 header('Content-Type: application/json');
 
