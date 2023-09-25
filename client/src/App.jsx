@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BlogPosts from './components/BlogPosts';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import Carousel from 'react-bootstrap/Carousel';
+import Carrossel from './components/carrossel';
 function App() {
   return (
-    <div>
-      <h1>Meu Blog</h1>
-      <BlogPosts /> 
-    </div>
-  );
+   <>
+   <Carrossel />
+   </>
+   
+    );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
