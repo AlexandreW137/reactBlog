@@ -11,16 +11,22 @@ function BlogPosts() {
       .catch(error => console.error('Erro ao obter os posts:', error));
   }, []);
 
+  const postElements = [];
+  for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
+    postElements.push(
+      <div className="post" key={i}>
+        <h2>{post.titulo}</h2>
+        <img src={post.imagem} alt={`Imagem de ${post.titulo}`} />
+        <p>{post.descricao}</p>
+        <a href={post.link}><span>Ler mais</span></a>
+      </div>
+    );
+  }
+
   return (
     <div className="mainBlog">
-      {posts.map((post, index) => (
-        <div className="post" key={index}>
-          <h2>{post.titulo}</h2>
-          <img src={post.imagem} alt={`Imagem de ${post.titulo}`} />
-          <p>{post.descricao}</p>
-          <a href={post.link}><span>Ler mais</span></a>
-        </div>
-      ))}
+      {postElements}
     </div>
   );
 }

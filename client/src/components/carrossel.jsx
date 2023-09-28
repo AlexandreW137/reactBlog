@@ -1,14 +1,16 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
-
+import { useMediaQuery } from '@chakra-ui/react';
 import Carousel from 'react-bootstrap/Carousel';
 
 import React from 'react'
-
 const Carrossel = () => {
+  const [isSmallerThan768] = useMediaQuery("(max-width: 768px)");
   return (
-    <div style={{ display: 'block', width: '100vw' ,height:600,padding: 30, margin: "0 auto" }}>
+    <div style={{ display: 'block', width: isSmallerThan768 ? '80vw' : '50vw' ,height:600,padding: 30, margin: "0 auto" }}>
 
+
+  
 <Carousel fade>
 <Carousel.Item interval={1500}>
   <img
@@ -25,6 +27,17 @@ const Carrossel = () => {
   <img
     className="d-block w-100" style={{height:600,}}
     src="https://media.geeksforgeeks.org/wp-content/uploads/20210425122716/1-300x115.png"
+    alt="Image Two"
+  />
+  <Carousel.Caption>
+    <h3>Label for second slide</h3>
+    <p>Sample Text for Image Two</p>
+  </Carousel.Caption>
+</Carousel.Item>
+<Carousel.Item interval={500}>
+  <img
+    className="d-block w-100" style={{height:600,}}
+    src="https://th.bing.com/th/id/R.63cecbdd7d650568bc0c3b66d9e0d2a9?rik=5ws0gMGeXsF2qw&pid=ImgRaw&r=0"
     alt="Image Two"
   />
   <Carousel.Caption>
